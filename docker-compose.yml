@@ -1,0 +1,11 @@
+services:
+  slack-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: slack-mcp
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${MCP_PORT:-5000}:${MCP_PORT:-5000}"
